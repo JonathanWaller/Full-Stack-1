@@ -1,14 +1,20 @@
 .dashmain {
   border: 1px solid black;
-  height: 100vh;
+  height: auto;
   width: 50vh;
 }
 
 .itemcard {
   height: 15vh;
-  width: 40vw;
+  width: 30vw;
   background-color: #d34735;
   margin: 10px;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+}
+
+.img {
+  width: 15vw;
+  height: 11vh;
 }

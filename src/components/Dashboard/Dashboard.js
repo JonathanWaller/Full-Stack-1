@@ -12,7 +12,7 @@ class Dashboard extends Component {
     let myItems = this.props.items.map((item, ind) => {
       return (
         <div key={item.id} className="itemcard">
-          <img src={item.image_url} width="60" height="80" />
+          <img src={item.image_url} className="img" alt="howdy" />
           <div className="nexttoimg">
             <div>{item.name}</div>
             <div>${item.price}</div>

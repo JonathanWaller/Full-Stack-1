@@ -28,7 +28,7 @@ class App extends Component {
         <Header />
         <div className="appbelowhead">
           <Dashboard items={this.state.items} />
-          <Form />
+          <Form getItems={this.componentDidMount} />
         </div>
       </div>
     );

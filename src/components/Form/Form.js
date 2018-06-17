@@ -1,16 +1,22 @@
 import React, { Component } from "react";
 import "./Form.css";
+import axios from "axios";
 
 class Form extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       imgPreview: "http://new.real-helmets.com/images/tile-empty.png",
       nameInput: "",
       priceInput: 0,
-      imgUrl: ""
+      imgUrl: "",
+      items: []
     };
     this.nameHandler = this.nameHandler.bind(this);
+    this.priceHandler = this.priceHandler.bind(this);
+    this.imgHandler = this.imgHandler.bind(this);
+    this.cancelHandler = this.cancelHandler.bind(this);
+    this.addHandler = this.addHandler.bind(this);
   }
 
   nameHandler(e) {
@@ -34,13 +40,18 @@ class Form extends Component {
     });
   }
 
-  handleClick() {
+  cancelHandler() {
     this.setState({
       nameInput: "",
       priceInput: 0,
       imgUrl: "",
       imgPreview: "http://new.real-helmets.com/images/tile-empty.png"
     });
+  }
+
+  addHandler(name, price, image_url) {
+    axios.post("/api/item", { name, price, image_url });
+    this.props.getItems();
   }
 
   render() {
@@ -68,8 +79,18 @@ class Form extends Component {
 
         {/* <img src={this.state.imgUrl} /> */}
 
-        <button onClick={() => this.handleClick()}>Cancel</button>
-        <button>Add to Inventory</button>
+        <button onClick={() => this.cancelHandler()}>Cancel</button>
+        <button
+          onClick={() =>
+            this.addHandler(
+              this.state.nameInput,
+              this.state.priceInput,
+              this.state.imgUrl
+            )
+          }
+        >
+          Add to Inventory
+        </button>
       </div>
     );
   }

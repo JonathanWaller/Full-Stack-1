@@ -1,7 +1,11 @@
 .mainform {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
   width: 40vw;
   height: 50vh;
-  background-color: #3ad886;
+  background-color: #d9d9d9;
 }
 
 .imgpreview {
