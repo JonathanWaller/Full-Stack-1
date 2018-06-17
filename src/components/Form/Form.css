@@ -1,0 +1,11 @@
+.mainform {
+  width: 40vw;
+  height: 50vh;
+  background-color: #3ad886;
+}
+
+.imgpreview {
+  width: 30vw;
+  height: 17vh;
+  background-color: white;
+}
