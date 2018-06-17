@@ -14,5 +14,12 @@ module.exports = {
       //   console.log(req.body);
       res.sendStatus(200)
     );
+  },
+
+  deleteProduct: (req, res) => {
+    console.log(req.params);
+    let db = req.app.get("db");
+    let { id } = req.params;
+    db.delete_product(id).then(() => res.sendStatus(200));
   }
 };

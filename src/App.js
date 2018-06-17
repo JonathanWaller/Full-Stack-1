@@ -27,7 +27,10 @@ class App extends Component {
       <div className="appmain">
         <Header />
         <div className="appbelowhead">
-          <Dashboard items={this.state.items} />
+          <Dashboard
+            items={this.state.items}
+            getItems={this.componentDidMount}
+          />
           <Form getItems={this.componentDidMount} />
         </div>
       </div>
